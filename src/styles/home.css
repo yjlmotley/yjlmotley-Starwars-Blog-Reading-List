@@ -3,9 +3,16 @@
 }
 
 .navbar {
-    /* color: #212529ff; this color already exists as font color*/ 
     background-color: #1A1E23ff;
     height: 5rem;
+}
+#favBtn {
+    display: inline-block;
+    margin-left: 170px;
+    margin-top: -90px;
+}
+#swLogo {
+    margin-right: 100px;
 }
 
 h1 {
