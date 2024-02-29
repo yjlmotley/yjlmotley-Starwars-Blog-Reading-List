@@ -1,7 +1,17 @@
+#layoutDiv {
+    background-color: black;
+}
+
+.navbar {
+    /* color: #212529ff; this color already exists as font color*/ 
+    background-color: #1A1E23ff;
+    height: 5rem;
+}
+
 h1 {
     align-self: flex-start;
     margin-left: 12%;
-    color: red;
+    color: #cc0020;
 }
 
 #cardDiv {

@@ -8,7 +8,7 @@ import { Card } from "../component/card";
 export const Home = () => {
 	const {store, actions} = useContext(Context)
 	return (
-	<div>
+	<div id="homePage">
 		<div className="mt-5 d-flex flex-column w-100 align-items-center">
 			<h1>Characters</h1>
 			<div id="cardDiv" className="d-flex flex-nowrap overflow-scroll align-items-stretch" style={{ width: "80%" }}>
