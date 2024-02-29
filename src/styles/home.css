@@ -1,3 +1,9 @@
+h1 {
+    align-self: flex-start;
+    margin-left: 12%;
+    color: red;
+}
+
 #cardDiv {
     overflow-y: hidden !important;
 }

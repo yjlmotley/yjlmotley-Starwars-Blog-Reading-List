@@ -14,7 +14,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				.then(data => setStore({characters:data.results}))
 				.catch(error => console.log(error))
 			},
-			getPlantets: () => {
+			getPlanets: () => {
 				fetch(apiUrl + "planets")
 				.then(resp => resp.json())
 				.then(data => setStore({planets:data.results}))
