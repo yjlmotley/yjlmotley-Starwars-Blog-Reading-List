@@ -6,11 +6,27 @@
     background-color: #1A1E23ff;
     height: 5rem;
 }
+
 #favBtn {
-    display: inline-block;
+    display: inline;
     margin-left: 170px;
     margin-top: -90px;
+    margin-bottom: 0;
 }
+.dropdown-menu {
+    margin-left: 168px;
+    margin-top: -30px !important;
+}
+.favLink {
+    color: yellow;
+}
+.favLink:hover {
+    color: white;
+}
+.fa-trash-can:hover {
+    color: #cc0020;
+}
+
 #swLogo {
     margin-right: 100px;
 }
@@ -23,8 +39,11 @@ h1 {
 
 #cardDiv {
     overflow-y: hidden !important;
+    width: 78%;
 }
-
 .card {
     margin: 10px;
+}
+.btn-heart:hover {
+    color: #cc0020;
 }

@@ -4,6 +4,10 @@
         margin-left: 28px;
         margin-right: 0px;
     }
+    .dropdown-menu {
+        margin-top: 0px !important;
+        margin-left: 28px;
+    }
     #swLogo {
         width: 180px;
         margin-top: 16px;
