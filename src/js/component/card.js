@@ -3,7 +3,7 @@ import React from "react";
 
 export const Card = (props) => {
     return (
-        <div className="card" style={{width: "18rem"}}>
+        <div className="card" style={{minWidth: "18rem"}}>
             <img src="..." className="card-img-top" alt="..." />
             <div className="card-body">
                 <h5 className="card-title">Card title</h5>
@@ -13,3 +13,8 @@ export const Card = (props) => {
         </div>
     )
 }
+
+
+//put the following line outside of teh < Card /> in the home.js
+// <div className= "d-flex flex nowrap">
+// </div>
