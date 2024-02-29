@@ -35,8 +35,20 @@ export const Details = ({category}) => {
 
 				<div className="detailsBtmDiv">
 					<div className="btmDivs">
-						<h6>Result</h6>
-						<p>description</p>
+						<h6>
+							{
+								category == "characters" ? "Hair Color " : 
+								category == "planets" ? "Population: " :
+								"Manufacturer: "
+                			}
+						</h6>
+						<p>
+							{
+								category == "characters" ? character.hair_color : 
+								category == "planets" ? planet.name :
+								starship.name
+							}
+						</p>
 					</div>
 					<div className="btmDivs">
 						<h6>Result Two</h6>

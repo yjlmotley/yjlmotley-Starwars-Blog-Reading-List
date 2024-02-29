@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 
 export const Card = ({item, index, category}) => {
-    // const BACKEND_URL = "https://starwars-visualguide.com/assets/img/characters/"
+    const BACKEND_URL = "https://starwars-visualguide.com/assets/img/characters/"
 
     return (
         <div className="card" style={{minWidth: "18rem"}}>
