@@ -1,0 +1,13 @@
+@media (max-width: 768px) {
+    #favBtn {
+        margin-bottom: -56px;
+        margin-left: 28px;
+        margin-right: 0px;
+    }
+    #swLogo {
+        width: 180px;
+        margin-top: 16px;
+        margin-left: 0px;
+        margin-right: 8px;
+    }
+}
