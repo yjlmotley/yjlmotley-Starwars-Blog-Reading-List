@@ -14,7 +14,7 @@ export const Home = () => {
 			<div id="cardDiv" className="d-flex flex-nowrap overflow-scroll align-items-stretch">
 				{store.characters.map((item, index) => {
 					return (
-						<Card item = {item} index = {index} />
+						<Card item = {item} index = {index} category = "characters" />
 					)
 				})}
 			</div>
@@ -24,7 +24,7 @@ export const Home = () => {
 			<div id="cardDiv" className="d-flex flex-nowrap overflow-scroll align-items-stretch">
 				{store.planets.map((item, index) => {
 					return (
-						<Card item = {item} index = {index} />
+						<Card item = {item} index = {index} category = "planets" />
 					)
 				})}
 			</div>
@@ -34,7 +34,7 @@ export const Home = () => {
 			<div id="cardDiv" className="d-flex flex-nowrap overflow-scroll align-items-stretch">
 				{store.starships.map((item, index) => {
 					return (
-						<Card item = {item} index = {index} />
+						<Card item = {item} index = {index} category = "starships" />
 					)
 				})}
 			</div>
