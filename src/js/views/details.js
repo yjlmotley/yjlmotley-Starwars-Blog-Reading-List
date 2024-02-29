@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
+import "../../styles/details.css";
+
 
 
 export const Details = ({category}) => {
@@ -13,46 +15,48 @@ export const Details = ({category}) => {
 
 	return (
 			<div className="detailsDiv">
-				<div>
-					<div>
-						<img src="https://picsum.photos/800/600" />
+				<div className="detailsTopDiv">
+					<div className="detailsImgDiv">
+						<img className="detailsImg" src="https://picsum.photos/800/600" />
 					</div>
-					<div>
-						<h3>
-						{
-						category == "characters" ? character.name : 
-						category == "planets" ? planet.name :
-						starship.name
-						}
-						</h3>
-						<p></p>
+					<div className="detailsTextDiv">
+						<h2 id="detailsName">
+							<u>{
+							category == "characters" ? character.name : 
+							category == "planets" ? planet.name :
+							starship.name
+							}</u>
+						</h2>
+						<p id="detailsNameDesc">
+							Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. 
+						</p>
 					</div>
 				</div>
 
-				<div>
-					<div>
-						<h6></h6>
-						<p></p>
+				<div className="detailsBtmDiv">
+					<div className="btmDivs">
+						<h6>Result</h6>
+						<p>description</p>
 					</div>
-					<div>
-						<h6></h6>
-						<p></p>
+					<div className="btmDivs">
+						<h6>Result Two</h6>
+						<p>desc two here</p>
 					</div>
-					<div>
-						<h6></h6>
-						<p></p>
+					<div className="btmDivs">
+						<h6>Result Three Line</h6>
+						<p>desc three</p>
 					</div>
-					<div>
-						<h6></h6>
-						<p></p>
+					<div className="btmDivs">
+						<h6>Result Eventually</h6>
+						<p>desc</p>
 					</div>
-					<div>
-						<h6></h6>
-						<p></p>
+					<div className="btmDivs">
+						<h6>Result Will Be Added</h6>
+						<p>description here</p>
 					</div>
-					<div>
-						<h6></h6>
-						<p></p>
+					<div className="btmDivs">
+						<h6>Result</h6>
+						<p>desc sixshould behere</p>
 					</div>
 				</div>
 			</div>

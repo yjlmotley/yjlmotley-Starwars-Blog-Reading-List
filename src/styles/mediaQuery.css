@@ -14,4 +14,13 @@
         margin-left: 0px;
         margin-right: 8px;
     }
+
+    #detailsName {
+        font-size: 20px;
+    }
+    #detailsNameDesc {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        font-size: 12px;
+    }
 }
