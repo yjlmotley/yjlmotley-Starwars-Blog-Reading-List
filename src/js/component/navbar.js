@@ -6,6 +6,10 @@ import starWarsLogo from "../../img/star-wars-logo-custom.png";
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
 
+	const handleDeleteFavorite = (index) => {
+        actions.deleteFavorites(index);
+	};
+
 	return (
 		<nav className="navbar mb-4">
 			<div className="dropdown">
@@ -19,7 +23,7 @@ export const Navbar = () => {
 								<Link to="/" className="favLink">
 									<span>{favs.name}</span>
 								</Link>
-								<span>
+								<span onClick={() => handleDeleteFavorite(index)}>
 									<i className="fa-regular fa-trash-can"></i>
 								</span>	
 							</li>

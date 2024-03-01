@@ -30,11 +30,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 				store.favorites.push(favItem);
 				setStore(store);
+			},
+			deleteFavorites: (index) => {
+				const store = getStore();
+				store.favorites.splice(index, 1);
+				setStore(store);
 			}
-			// ,
-			// deleteFavorites: () => {
-
-			// }
 		}
 	};
 };
