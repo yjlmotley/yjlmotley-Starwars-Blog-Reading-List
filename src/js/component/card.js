@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 
 
 export const Card = ({item, index, category}) => {
-    const BACKEND_URL = "https://starwars-visualguide.com/assets/img/characters/"
+    const GUIDE_URL = "https://starwars-visualguide.com/assets/img/"
 
     return (
         <div className="card" style={{minWidth: "18rem"}}>
-            <img src="https://picsum.photos/400/200" className="card-img-top" alt="character_image" />
+            <img src={GUIDE_URL + category + "/" + index + ".jpg"} className="card-img-top" alt="image" />
             <div className="card-body">
                 <h5 className="card-title fw-bold">{item.name}</h5>
                 <p className="card-text">{
@@ -41,4 +41,5 @@ export const Card = ({item, index, category}) => {
 
 
 // following would be the line for the character image eventually
+// const BACKEND_URL = "https://starwars-visualguide.com/assets/img/characters/"
 // <img src={BACKEND_URL + person.uid + ".jpg"} className="card-img-top" alt="character_image" />
