@@ -3,21 +3,34 @@ import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/details.css";
+import emptyPicImg from "../../img/star-wars-empty.jpg";
 
 
 export const Details = ({category}) => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
+
 	const character = store.characters.find((item, index) => index == params.theid);
 	const planet = store.planets.find((item, index) => index == params.theid);
 	const starship = store.starships.find((item, index) => index == params.theid);
+	
 	const GUIDE_URL = "https://starwars-visualguide.com/assets/img/"
+    const [imageError, setImageError] = useState(false);
+    const handleImageError = () => {
+        setImageError(true);
+    };
+
 
 	return (
 			<div className="detailsDiv">
 				<div className="detailsTopDiv">
 					<div className="detailsImgDiv">
-						<img src={GUIDE_URL + category + "/" + (parseInt(params.theid) + 1) + ".jpg"} className="detailsImg" alt="image not available" />
+						<img 
+							src={imageError ? emptyPicImg : GUIDE_URL + category + "/" + (parseInt(params.theid) + 1) + ".jpg"} 
+							onError={handleImageError}
+							className="detailsImg" 
+							alt="image not available"
+						/>
 					</div>
 					<div className="detailsTextDiv">
 						<h2 id="detailsName">

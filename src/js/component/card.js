@@ -25,7 +25,7 @@ export const Card = ({item, index, category}) => {
                 src={imageError ? EMPTY_PIC_URL : GUIDE_URL + category + "/" + (index + 1) + ".jpg"}
                 onError={handleImageError} 
                 className="card-img-top" 
-                alt="image"
+                alt="image not available"
             />
             <div className="card-body">
                 <h5 className="card-title fw-bold">{item.name}</h5>
