@@ -1,14 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 
-
 export const Card = ({item, index, category}) => {
-    const GUIDE_URL = "https://starwars-visualguide.com/assets/img/"
+    const GUIDE_URL = "https://starwars-visualguide.com/assets/img/";
+    let EMPTY_PIC_URL;
+    const [imageError, setImageError] = useState(false);
+
+    const handleImageError = () => {
+        setImageError(true);
+    };
+
+    if (category === "characters") {
+        EMPTY_PIC_URL = "https://via.placeholder.com/286x393";
+    } else if (category === "planets") {
+        EMPTY_PIC_URL = "https://via.placeholder.com/286x286";
+    } else {
+        EMPTY_PIC_URL = "https://via.placeholder.com/286x190";
+    }
 
     return (
-        <div className="card" style={{minWidth: "18rem"}}>
-            <img src={GUIDE_URL + category + "/" + index + ".jpg"} className="card-img-top" alt="image" />
+        <div className="card">
+            <img 
+                src={imageError ? EMPTY_PIC_URL : GUIDE_URL + category + "/" + (index + 1) + ".jpg"}
+                onError={handleImageError} 
+                className="card-img-top" 
+                alt="image"
+            />
             <div className="card-body">
                 <h5 className="card-title fw-bold">{item.name}</h5>
                 <p className="card-text">{
@@ -31,8 +49,13 @@ export const Card = ({item, index, category}) => {
                         <button type="button" className="btn btn-primary">Learn more!</button>
                     </Link>
                     <button type="button" className="btn btn-outline-warning btn-heart">
-                        <i className="fa-solid fa-heart"></i>
+                        <i className="fa-solid fa-heart heartBtn"></i>
                     </button>
+                    {/* 
+                    {store.favorites.map((item, index) => {
+
+				    })} */}
+
                 </div>
             </div>
         </div>

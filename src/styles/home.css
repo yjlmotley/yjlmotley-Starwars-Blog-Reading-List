@@ -43,6 +43,7 @@ h1 {
 }
 .card {
     margin: 10px;
+    min-width: 18rem;
 }
 .btn-heart:hover {
     color: #cc0020;

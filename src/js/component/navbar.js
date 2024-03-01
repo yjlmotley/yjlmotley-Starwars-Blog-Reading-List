@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import starWarsLogo from "../../img/star-wars-logo-custom.png";
 
 
 export const Navbar = () => {
+	const { store, actions } = useContext(Context);
+	let favs = store.favorites.find;
+	
+
 	return (
 		<nav className="navbar mb-4">
 			<div className="dropdown">
 				<button id="favBtn" type="button" class="btn btn-outline-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-					♡ Favorites
+					♡ Favorites{store.favorites.length}
 				</button>
 				<ul className="dropdown-menu dropdown-menu-dark">
 					<li className="dropdown-item text-center">(empty)</li>
