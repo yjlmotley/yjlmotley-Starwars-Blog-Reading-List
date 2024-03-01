@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
-import { Link, useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/details.css";
 import emptyPicImg from "../../img/star-wars-empty.jpg";
 
 
-export const Details = ({category}) => {
+export const Details = ({ category }) => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 
@@ -16,10 +16,15 @@ export const Details = ({category}) => {
 	
 	const GUIDE_URL = "https://starwars-visualguide.com/assets/img/"
     const [imageError, setImageError] = useState(false);
+	const location = useLocation();
+
     const handleImageError = () => {
         setImageError(true);
     };
-
+	
+	useEffect(() => {
+		setImageError(false);
+	}, [location]);
 
 	return (
 			<div className="detailsDiv">
