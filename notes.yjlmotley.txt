@@ -14,6 +14,8 @@
 * Consider adjusting the dropdown menu so it doesn't auto close,
  (stay open until you click out of it, and a top right "x" button would be good too.)
 
+* Card Heart just outlines red when you hover, then completely read when selected into favs.
+
 
 * Relink the index for the starships as the numbers and the index are off.
 Worst case scenario, switch to another topic but try not to.
