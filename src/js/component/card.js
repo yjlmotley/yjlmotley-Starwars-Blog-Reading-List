@@ -21,8 +21,17 @@ export const Card = ({item, index, category}) => {
     }
 
     const addToFavorites = () => {
-        actions.getFavorites({ name: item.name, index, category });
+        const isFavorite = store.favorites.some(fav => fav.name === item.name && fav.category === category);
+        if (isFavorite) {
+            const indexToDelete = store.favorites.findIndex(fav => fav.name === item.name && fav.category === category);
+            if (indexToDelete !== -1) {
+                actions.deleteFavorites(indexToDelete);
+            }
+        } else {
+            actions.getFavorites({ name: item.name, index, category });
+        }
     };
+    
     const isFavorite = store.favorites.some(fav => fav.name === item.name && fav.category === category);
 
     return (
