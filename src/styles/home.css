@@ -52,8 +52,8 @@ h1 {
 #cardBtnGroup {
     margin-top: auto;
 }
-.btn-heart:hover {
-    color: #cc0020;
+.btn-heart:hover .heartBtn {
+    color: #cc0020 !important;
 }
 /* .footer {
     position: absolute;
