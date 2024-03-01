@@ -1,0 +1,30 @@
+@@yjlmotley : these notes are for the creater of this page
+--- IDEAS FOR FURTHER PROGRESS ON PROJECT ---
+(for the sake of a personal portfolio...)
+
+
+* Redo the Not found! page for styling
+* Favorite li link (blue when hovering would be nice, with white/black when active)
+
+* Update footer with linked.in link and any other social media/marketing ideas.
+
+* Consider using arrows or a smooth slider instead of the basic scroll slider.
+* Make sure scroll to top is working on details pages.
+* Consider putting an easily seen go back to Home link text on details tabs.
+* Consider adjusting the dropdown menu so it doesn't auto close,
+ (stay open until you click out of it, and a top right "x" button would be good too.)
+
+
+* Relink the index for the starships as the numbers and the index are off.
+Worst case scenario, switch to another topic but try not to.
+
+* Make sure there is a picture for each card/item
+
+
+* Maybe something in the middle of the page that has a low index/possibly transparent? 
+(also going back to home page maybe)
+*Maybe try giving the card a stock card texture feeling?
+
+* Maybe add some twinkling stars in the background of the whole pages? 
+(keep in mind the layout height is way off)
+*(fix layout height issue)
