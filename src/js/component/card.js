@@ -21,7 +21,7 @@ export const Card = ({item, index, category}) => {
     }
 
     const addToFavorites = () => {
-        actions.getFavorites({ name: item.name, index });
+        actions.getFavorites({ name: item.name, index, category });
     };
 
     return (

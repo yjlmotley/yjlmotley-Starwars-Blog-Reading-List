@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
 import starWarsLogo from "../../img/star-wars-logo-custom.png";
 
-export const Navbar = () => {
+export const Navbar = ({category}) => {
 	const { store, actions } = useContext(Context);
 
 	const handleDeleteFavorite = (index) => {
@@ -20,7 +20,7 @@ export const Navbar = () => {
 					{store.favorites.length > 0 ? (
 						store.favorites.map((favs, index) => (
 							<li key={index} className="dropdown-item d-flex justify-content-between">
-								<Link to="/" className="favLink">
+								<Link to={"/details/" + favs.category + "/" + favs.index} className="favLink">
 									<span>{favs.name}</span>
 								</Link>
 								<span onClick={() => handleDeleteFavorite(index)}>
