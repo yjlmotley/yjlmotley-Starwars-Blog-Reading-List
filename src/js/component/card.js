@@ -27,7 +27,7 @@ export const Card = ({item, index, category}) => {
                 className="card-img-top" 
                 alt="image not available"
             />
-            <div className="card-body">
+            <div id="cardBody" className="card-body">
                 <h5 className="card-title fw-bold">{item.name}</h5>
                 <p className="card-text">{
                     category == "characters" ? "Gender: " + item.gender : 
@@ -44,7 +44,7 @@ export const Card = ({item, index, category}) => {
                     category == "planets" ? "Terrain: " + item.terrain :
                     "Crew: " + item.crew
                 }</p>
-                <div className="d-flex justify-content-between">
+                <div id="cardBtnGroup" className="d-flex justify-content-between">
                     <Link to={"/details/" + category + "/" + index}>
                         <button type="button" className="btn btn-primary">Learn more!</button>
                     </Link>

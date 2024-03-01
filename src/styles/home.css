@@ -45,6 +45,13 @@ h1 {
     margin: 10px;
     min-width: 18rem;
 }
+#cardBody {
+    display: flex;
+    flex-direction: column;
+}
+#cardBtnGroup {
+    margin-top: auto;
+}
 .btn-heart:hover {
     color: #cc0020;
 }
