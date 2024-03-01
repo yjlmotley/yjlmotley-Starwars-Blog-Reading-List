@@ -30,3 +30,17 @@ Worst case scenario, switch to another topic but try not to.
 * Maybe add some twinkling stars in the background of the whole pages? 
 (keep in mind the layout height is way off)
 *(fix layout height issue)
+
+
+--- Used following resources for the project ---
+
+* https://www.starwars.com/databank
+* https://starwars-visualguide.com/#/characters?page=1
+* https://swapi.dev/
+* https://www.swapi.tech/
+
+😎 Feeling Confident?
+The following features are not needed for the final solution, but you can develop them if you feel confident enough:
+
++1 Prevent the website from fetching the Startwars API again if refreshed (you can use the localStorage to save the store on the local browser).
++3 Implement a search bar with autocomplete for characters, planets, and vehicles. When the autocomplete is clicked it should take you to the detailed page of the element.
