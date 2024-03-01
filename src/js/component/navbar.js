@@ -3,28 +3,30 @@ import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import starWarsLogo from "../../img/star-wars-logo-custom.png";
 
-
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
-	let favs = store.favorites.find;
-	
 
 	return (
 		<nav className="navbar mb-4">
 			<div className="dropdown">
-				<button id="favBtn" type="button" class="btn btn-outline-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-					♡ Favorites{store.favorites.length}
+				<button id="favBtn" type="button" className="btn btn-outline-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+					♡ Favorites [{store.favorites.length}]
 				</button>
 				<ul className="dropdown-menu dropdown-menu-dark">
-					<li className="dropdown-item text-center">(empty)</li>
-					<li className="dropdown-item d-flex justify-content-between">
-						<Link to="/" className="favLink">
-							<span>Fav Listed</span>
-						</Link>
-						<span>
-							<i class="fa-regular fa-trash-can"></i>
-						</span>	
-					</li>
+					{store.favorites.length > 0 ? (
+						store.favorites.map((favs, index) => (
+							<li key={index} className="dropdown-item d-flex justify-content-between">
+								<Link to="/" className="favLink">
+									<span>{favs.name}</span>
+								</Link>
+								<span>
+									<i className="fa-regular fa-trash-can"></i>
+								</span>	
+							</li>
+						))
+					) : (
+						<li className="dropdown-item text-center">(empty)</li>
+					)}
 				</ul>
 			</div>
 			<div>

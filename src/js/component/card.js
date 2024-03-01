@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-
+import { Context } from "../store/appContext";
 
 export const Card = ({item, index, category}) => {
     const GUIDE_URL = "https://starwars-visualguide.com/assets/img/";
     let EMPTY_PIC_URL;
     const [imageError, setImageError] = useState(false);
+    const { actions } = useContext(Context);
 
     const handleImageError = () => {
         setImageError(true);
@@ -19,6 +20,10 @@ export const Card = ({item, index, category}) => {
         EMPTY_PIC_URL = "https://via.placeholder.com/286x190";
     }
 
+    const addToFavorites = () => {
+        actions.getFavorites({ name: item.name, index });
+    };
+
     return (
         <div className="card">
             <img 
@@ -29,40 +34,36 @@ export const Card = ({item, index, category}) => {
             />
             <div id="cardBody" className="card-body">
                 <h5 className="card-title fw-bold">{item.name}</h5>
-                <p className="card-text">{
+                <p className="card-text">
+                    {
                     category == "characters" ? "Gender: " + item.gender : 
                     category == "planets" ? "Population: " + item.population :
                     "Manufacturer: " + item.manufacturer
-                }</p>
-                <p className="card-text">{
+                    }
+                </p>
+                <p className="card-text">
+                    {
                     category == "characters" ? "Birth Year: " + item.birth_year : 
                     category == "planets" ? "Gravity: " + item.gravity :
                     "Speed: " + item.max_atmosphering_speed
-                }</p>
-                <p className="card-text">{
+                    }
+                </p>
+                <p className="card-text">
+                    {
                     category == "characters" ? "Skin Color: " + item.skin_color : 
                     category == "planets" ? "Terrain: " + item.terrain :
                     "Crew: " + item.crew
-                }</p>
+                    }
+                </p>
                 <div id="cardBtnGroup" className="d-flex justify-content-between">
                     <Link to={"/details/" + category + "/" + index}>
                         <button type="button" className="btn btn-primary">Learn more!</button>
                     </Link>
-                    <button type="button" className="btn btn-outline-warning btn-heart">
+                    <button type="button" className="btn btn-outline-warning btn-heart" onClick={addToFavorites}>
                         <i className="fa-solid fa-heart heartBtn"></i>
                     </button>
-                    {/* 
-                    {store.favorites.map((item, index) => {
-
-				    })} */}
-
                 </div>
             </div>
         </div>
-    )
-}
-
-
-// following would be the line for the character image eventually
-// const BACKEND_URL = "https://starwars-visualguide.com/assets/img/characters/"
-// <img src={BACKEND_URL + person.uid + ".jpg"} className="card-img-top" alt="character_image" />
+    );
+};
