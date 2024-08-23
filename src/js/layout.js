@@ -1,13 +1,12 @@
 import React from "react";
-import { HashRouter, Route, Routes } from "react-router-dom";
-import ScrollToTop from "./component/scrollToTop";
-
-import { Home } from "./views/home";
-import { Details } from "./views/details";
 import injectContext from "./store/appContext";
+import { HashRouter, Route, Routes } from "react-router-dom";
 
-import { Navbar } from "./component/navbar";
-import { Footer } from "./component/footer";
+import ScrollToTop from "./component/scrollToTop";
+import { Navbar } from "./component/Navbar.jsx";
+import { Home } from "./views/Home.jsx";
+import { Details } from "./views/Details.jsx";
+import { Footer } from "./component/Footer.jsx";
 
 import "../styles/mediaQuery.css";
 

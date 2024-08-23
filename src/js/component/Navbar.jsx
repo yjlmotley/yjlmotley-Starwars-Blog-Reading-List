@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
+
 import starWarsLogo from "../../img/star-wars-logo-custom.png";
 
-export const Navbar = ({category}) => {
+
+export const Navbar = () => {
 	const { store, actions } = useContext(Context);
 
 	const handleDeleteFavorite = (index) => {

@@ -1,26 +1,37 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 
-export const Card = ({item, index, category}) => {
-    const GUIDE_URL = "https://starwars-visualguide.com/assets/img/";
-    let EMPTY_PIC_URL;
-    const [imageError, setImageError] = useState(false);
+import tatooineImg from "../../img/tatooine.jpg";
+
+
+export const Card = ({ item, index, category }) => {
     const { store, actions } = useContext(Context);
+    const [imgError, setImgError] = useState(false);
 
-    const handleImageError = () => {
-        setImageError(true);
+    const GUIDE_URL = "https://starwars-visualguide.com/assets/img/";
+
+
+    const handleImgError = () => {
+        setImgError(true);
     };
 
+    let EMPTY_IMG_URL;
     if (category === "characters") {
-        EMPTY_PIC_URL = "https://via.placeholder.com/286x393";
+        EMPTY_IMG_URL = "https://via.placeholder.com/286x393";
+    } else if (category === "planets" && item.name === "Tatooine") {
+        EMPTY_IMG_URL = tatooineImg;
     } else if (category === "planets") {
-        EMPTY_PIC_URL = "https://via.placeholder.com/286x286";
+        EMPTY_IMG_URL = "https://via.placeholder.com/286x286";
     } else {
-        EMPTY_PIC_URL = "https://via.placeholder.com/286x190";
+        EMPTY_IMG_URL = "https://via.placeholder.com/286x190";
     }
+    // --- OR ---
+    // const EMPTY_IMG_URL = category === "planets" && item.name === "Tatooine" 
+    //     ? tatooineImg 
+    //     : "https://via.placeholder.com/286x190";
 
-    const addToFavorites = () => {
+    const handleFavorites = () => {
         const isFavorite = store.favorites.some(fav => fav.name === item.name && fav.category === category);
         if (isFavorite) {
             const indexToDelete = store.favorites.findIndex(fav => fav.name === item.name && fav.category === category);
@@ -28,7 +39,7 @@ export const Card = ({item, index, category}) => {
                 actions.deleteFavorites(indexToDelete);
             }
         } else {
-            actions.getFavorites({ name: item.name, index, category });
+            actions.addFavorites({ name: item.name, index, category });
         }
     };
     
@@ -37,8 +48,8 @@ export const Card = ({item, index, category}) => {
     return (
         <div className="card">
             <img 
-                src={imageError ? EMPTY_PIC_URL : GUIDE_URL + category + "/" + (index + 1) + ".jpg"}
-                onError={handleImageError} 
+                src={imgError ? EMPTY_IMG_URL : GUIDE_URL + category + "/" + (index + 1) + ".jpg"}
+                onError={handleImgError} 
                 className="card-img-top" 
                 alt="image not available"
             />
@@ -69,7 +80,7 @@ export const Card = ({item, index, category}) => {
                     <Link to={"/details/" + category + "/" + index}>
                         <button type="button" className="btn btn-primary">Learn more!</button>
                     </Link>
-                    <button type="button" className="btn btn-outline-warning btn-heart" onClick={addToFavorites}>
+                    <button type="button" className="btn btn-outline-warning btn-heart" onClick={ handleFavorites }>
                         <i className="fa-solid fa-heart heartBtn" style={{ color: isFavorite ? '#cc0020' : '#ffc107' }}></i>
                     </button>
                 </div>

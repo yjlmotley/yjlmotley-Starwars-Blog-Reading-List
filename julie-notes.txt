@@ -1,7 +1,6 @@
-@@yjlmotley : these notes are for the creater of this page
---- IDEAS FOR FURTHER PROGRESS ON PROJECT ---
-(for the sake of a personal portfolio...)
+last checked for bugs (8.22.2024)
 
+--- IDEAS FOR FUTURE DEVELOPMENT ON PROJECT ---
 
 * Redo the Not found! page for styling
 * Favorite li link (blue when hovering would be nice, with white/black when active)
@@ -37,7 +36,7 @@ Worst case scenario, switch to another topic but try not to.
 * https://www.starwars.com/databank
 * https://starwars-visualguide.com/#/characters?page=1
 * https://swapi.dev/
-* https://www.swapi.tech/
+* (https://www.swapi.tech/)
 
 😎 Feeling Confident?
 The following features are not needed for the final solution, but you can develop them if you feel confident enough:
