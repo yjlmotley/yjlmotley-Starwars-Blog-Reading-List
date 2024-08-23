@@ -2,6 +2,8 @@ last checked for bugs (8.22.2024)
 
 --- IDEAS FOR FUTURE DEVELOPMENT ON PROJECT ---
 
+* Btn at the bottom of the page to go to the top of the page
+
 * Redo the Not found! page for styling
 * Favorite li link (blue when hovering would be nice, with white/black when active)
 

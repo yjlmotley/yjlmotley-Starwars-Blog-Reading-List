@@ -1,8 +1,8 @@
 import React from "react";
-import injectContext from "./store/appContext";
+import injectContext from "./store/appContext.js";
 import { HashRouter, Route, Routes } from "react-router-dom";
 
-import ScrollToTop from "./component/scrollToTop";
+import ScrollToTop from "./component/ScrollToTop.jsx";
 import { Navbar } from "./component/Navbar.jsx";
 import { Home } from "./views/Home.jsx";
 import { Details } from "./views/Details.jsx";

@@ -5,27 +5,36 @@ import PropTypes from "prop-types";
 
 import "../../styles/details.css";
 import emptyPicImg from "../../img/star-wars-empty.jpg";
+import tatooineImg from "../../img/tatooine.jpg"
 
 
 export const Details = ({ category }) => {
 	const { store } = useContext(Context);
+	const [imgError, setImgError] = useState(false);
 	const params = useParams();
+	const location = useLocation();
+
+	useEffect(() => {
+		setImgError(false);
+	}, [location]);
+
 
 	const character = store.characters.find((item, index) => index == params.theid);
 	const planet = store.planets.find((item, index) => index == params.theid);
 	const starship = store.starships.find((item, index) => index == params.theid);
 
 	const GUIDE_URL = "https://starwars-visualguide.com/assets/img/"
-	const [imageError, setImageError] = useState(false);
-	const location = useLocation();
+	const getImgUrl = () => {
+		if (imgError && planet.name === "Tatooine") {
+			return tatooineImg;
+		} else if (imgError) {
+			return emptyPicImg;
+		} return GUIDE_URL + category + "/" + (parseInt(params.theid) + 1) + ".jpg";
+	}
 
-	const handleImageError = () => {
-		setImageError(true);
+	const handleImgError = () => {
+		setImgError(true);
 	};
-
-	useEffect(() => {
-		setImageError(false);
-	}, [location]);
 
 
 	return (
@@ -33,8 +42,8 @@ export const Details = ({ category }) => {
 			<div className="detailsTopDiv">
 				<div className="detailsImgDiv">
 					<img
-						src={imageError ? emptyPicImg : GUIDE_URL + category + "/" + (parseInt(params.theid) + 1) + ".jpg"}
-						onError={handleImageError}
+						src={ getImgUrl() }
+						onError={handleImgError}
 						className="detailsImg"
 						alt="image not available"
 					/>

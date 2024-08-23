@@ -16,18 +16,18 @@ export const Card = ({ item, index, category }) => {
         setImgError(true);
     };
 
-    let EMPTY_IMG_URL;
+    let emptyImgUrl;
     if (category === "characters") {
-        EMPTY_IMG_URL = "https://via.placeholder.com/286x393";
+        emptyImgUrl = "https://via.placeholder.com/286x393";
     } else if (category === "planets" && item.name === "Tatooine") {
-        EMPTY_IMG_URL = tatooineImg;
+        emptyImgUrl = tatooineImg;
     } else if (category === "planets") {
-        EMPTY_IMG_URL = "https://via.placeholder.com/286x286";
+        emptyImgUrl = "https://via.placeholder.com/286x286";
     } else {
-        EMPTY_IMG_URL = "https://via.placeholder.com/286x190";
+        emptyImgUrl = "https://via.placeholder.com/286x190";
     }
     // --- OR ---
-    // const EMPTY_IMG_URL = category === "planets" && item.name === "Tatooine" 
+    // const emptyImgUrl = category === "planets" && item.name === "Tatooine" 
     //     ? tatooineImg 
     //     : "https://via.placeholder.com/286x190";
 
@@ -48,7 +48,7 @@ export const Card = ({ item, index, category }) => {
     return (
         <div className="card">
             <img 
-                src={imgError ? EMPTY_IMG_URL : GUIDE_URL + category + "/" + (index + 1) + ".jpg"}
+                src={imgError ? emptyImgUrl : GUIDE_URL + category + "/" + (index + 1) + ".jpg"}
                 onError={handleImgError} 
                 className="card-img-top" 
                 alt="image not available"
