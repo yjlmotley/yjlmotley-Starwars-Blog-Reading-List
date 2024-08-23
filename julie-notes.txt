@@ -2,15 +2,16 @@ last checked for bugs (8.22.2024)
 
 --- IDEAS FOR FUTURE DEVELOPMENT ON PROJECT ---
 
-* Btn at the bottom of the page to go to the top of the page
+* Clear all fav button in the navbar fav dropdown 
+* Details styling could be better (check the death star details page)
 
 * Redo the Not found! page for styling
 * Favorite li link (blue when hovering would be nice, with white/black when active)
 
 * Update footer with linked.in link and any other social media/marketing ideas.
 
-* Consider using arrows or a smooth slider instead of the basic scroll slider.
-* Make sure scroll to top is working on details pages.
+* Consider using arrows or a smooth slider instead of the basic scroll slider (left and right arrow to scroll instead of using .overflow-scroll)
+* Make sure scroll to top is working on details pages (it is going to the top of the details, just not above the navbar)
 * Consider putting an easily seen go back to Home link text on details tabs.
 * Consider adjusting the dropdown menu so it doesn't auto close,
  (stay open until you click out of it, and a top right "x" button would be good too.)
@@ -32,6 +33,7 @@ Worst case scenario, switch to another topic but try not to.
 (keep in mind the layout height is way off)
 *(fix layout height issue)
 
+* Add manual images for the starships or considering using a different pathway
 
 --- Used following resources for the project ---
 
@@ -43,5 +45,4 @@ Worst case scenario, switch to another topic but try not to.
 😎 Feeling Confident?
 The following features are not needed for the final solution, but you can develop them if you feel confident enough:
 
-+1 Prevent the website from fetching the Startwars API again if refreshed (you can use the localStorage to save the store on the local browser).
 +3 Implement a search bar with autocomplete for characters, planets, and vehicles. When the autocomplete is clicked it should take you to the detailed page of the element.

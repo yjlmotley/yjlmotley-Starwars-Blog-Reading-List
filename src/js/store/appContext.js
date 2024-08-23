@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import getState from "./flux.js";
 
+// --- for code without using localStorage ---
+// import getState from "./simpleFlux.js";
+
 
 export const Context = React.createContext(null);
 

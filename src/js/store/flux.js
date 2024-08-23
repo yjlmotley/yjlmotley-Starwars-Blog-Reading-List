@@ -1,64 +1,50 @@
 const getState = ({ getStore, getActions, setStore }) => {
-	let apiUrl = "https://swapi.dev/api/"
+	let apiUrl = "https://swapi.dev/api/";
+
+	const saveToLocalStorage = (key, data) => {
+		localStorage.setItem(key, JSON.stringify(data));
+	};
+
+	const getFromLocalStorage = (key) => {
+		const data = localStorage.getItem(key);
+		return data ? JSON.parse(data) : [];
+	};
+
+	const fetchDataIfNeeded = (category, apiEndPoint, localStorageKey) => {
+		const store = getStore();
+		if (Array.isArray(store[category]) && store[category].length === 0) {
+			fetch(apiUrl + apiEndPoint)
+				.then(resp => resp.json())
+				.then(data => {
+					setStore({ [category]: data.results });
+					saveToLocalStorage(localStorageKey, data.results);
+				})
+				.catch(error => console.log(`Error fetching ${category}:`, error));
+		}
+	};
 
 	return {
 		store: {
-			characters: [],
-			planets: [],
-			starships: [],
-			favorites: []
+			characters: getFromLocalStorage('characters'),
+			planets: getFromLocalStorage('planets'),
+			starships: getFromLocalStorage('starships'),
+			favorites: getFromLocalStorage('favorites')
 		},
 		actions: {
-			// getCharacters: () => {
-			// 	fetch(apiUrl + "people")
-			// 	.then(resp => {
-			// 		console.log("Response:", resp); // Log the raw response
-			// 		return resp.json();
-			// 	})
-			// 	.then(data => {
-			// 		console.log("Result:", data); // Log the parsed result
-			// 		setStore({ characters: data.results });
-			// 	})
-			// 	.catch(error => console.log(error));
-			// },
-			// --- use the above method if you want to console log the response and the result from the api ---
 
-			getCharacters: () => {
-				fetch(apiUrl + "people")
-				.then(resp => resp.json())
-				.then(data => setStore({characters:data.results}))
-				.catch(error => console.log(error))
-			},
-			getPlanets: () => {
-				fetch(apiUrl + "planets")
-				.then(resp => resp.json())
-				.then(data => setStore({planets:data.results}))
-				.catch(error => console.log(error))
-			},
-			getStarships: () => {
-				fetch(apiUrl + "starships")
-				.then(resp => resp.json())
-				.then(data => setStore({starships:data.results}))
-				.catch(error => console.log(error))
-			},
+			getCharacters: () => fetchDataIfNeeded('characters', 'people', 'characters'),
+			getPlanets: () => fetchDataIfNeeded('planets', 'planets', 'planets'),
+			getStarships: () => fetchDataIfNeeded('starships', 'starships', 'starships'),
 
 			addFavorites: (favItem) => {
-				setStore({
-					favorites: [...getStore().favorites, favItem]
-				});
-				// --- or you could write it like this ---
-				// const store = getStore();
-				// store.favorites.push(favItem);
-				// setStore(store);
+				const newFavorites = [...getStore().favorites, favItem]
+				setStore({ favorites: newFavorites });
+				saveToLocalStorage('favorites', newFavorites);
 			},
 			deleteFavorites: (index) => {
-				// const store = getStore();
-				// store.favorites.splice(index, 1);
-				// setStore(store);
-				// --- option below is better as it's better to create a new array vs mutating an array ---
-				const store = getStore();
-				const newFavorites = store.favorites.filter((_, i) => i !== index);
+				const newFavorites = getStore().favorites.filter((_, i) => i !== index);
 				setStore({ favorites: newFavorites });
+				saveToLocalStorage('favorites', newFavorites);
 			}
 		}
 	};

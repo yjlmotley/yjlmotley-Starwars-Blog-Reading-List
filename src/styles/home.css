@@ -29,6 +29,7 @@
 }
 .fa-trash-can:hover {
     color: #cc0020;
+    cursor: pointer;
 }
 
 #swLogo {
