@@ -13,10 +13,11 @@ export const Navbar = () => {
 	};
 
 	return (
-		<nav className="navbar mb-4">
+		<nav className="navbar mb-4" style={{}}>
 			<div className="dropdown">
 				<button id="favBtn" type="button" className="btn btn-outline-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-					♡ Favorites [{store.favorites.length}]
+					<i className="fa-regular fa-heart"></i><b> Favorites [{store.favorites.length}]</b>
+					{/* <i className="fa-regular fa-heart"></i><b>♡ Favorites</b> [{store.favorites.length}] */}
 				</button>
 				<ul className="dropdown-menu dropdown-menu-dark">
 					{store.favorites.length > 0 ? (

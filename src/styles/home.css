@@ -3,7 +3,8 @@
 }
 
 .navbar {
-    background-color: #1A1E23ff;
+    /* background-color: #1A1E23ff; */
+    background-color: black;
     height: 5rem;
 }
 
@@ -12,6 +13,19 @@
     margin-left: 170px;
     margin-top: -90px;
     margin-bottom: 0;
+    box-shadow: 1px 1px 4px 1px #ffc107; 
+}
+
+@keyframes continuousFlip {
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+.btn-outline-warning.dropdown-toggle.show .fa-heart {
+    animation: continuousFlip 1s infinite linear;
 }
 
 .dropdown-menu {
@@ -54,8 +68,16 @@ h1 {
     display: flex;
     flex-direction: column;
 }
+#cardBody p {
+    margin-bottom: 6px;
+}
+.detail-label {
+    font-weight: 600; 
+}
+
 #cardBtnGroup {
     margin-top: auto;
+    margin-bottom: -6px;
 }
 .btn-heart:hover .heartBtn {
     color: #cc0020 !important;
