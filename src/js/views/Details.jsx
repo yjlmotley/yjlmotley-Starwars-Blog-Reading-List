@@ -168,5 +168,5 @@ export const Details = ({ category }) => {
 
 
 Details.propTypes = {
-	match: PropTypes.object
+    category: PropTypes.string.isRequired
 };
