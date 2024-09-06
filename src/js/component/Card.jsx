@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import tatooineImg from "../../img/tatooine.jpg";
 import bespinImg from "../../img/bespin.jpg";
-
+import emptyPicImg from "../../img/star-wars-empty.jpg";
 
 export const Card = ({ item, index, category }) => {
     const { store, actions } = useContext(Context);
@@ -18,12 +18,14 @@ export const Card = ({ item, index, category }) => {
     const GUIDE_URL = "https://starwars-visualguide.com/assets/img/";
 
     const getImgUrl = () => {
-        if (imgError && item.name === "Tatooine") {
+        if (item.name === "Tatooine") {
             return tatooineImg;
         } else if (item.name === "Bespin") {
             return bespinImg;
         } else if (category === "starships") {
             return store.starshipImages[index] || emptyPicImg;
+        } else if (imgError) {
+            return emptyPicImg;
         } return `${GUIDE_URL}${category}/${index + 1}.jpg`
     }
     // --- OR ---
