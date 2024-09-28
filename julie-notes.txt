@@ -47,5 +47,6 @@ Worst case scenario, switch to another topic but try not to.
 - [ ] fix the details pages (img): similar format as the Card.js file)
 - [ ] fix the footer issue: 
           * make the main div relative and the footer fixed with a padding at the bottom of the pages for the footer
+- [ ] delete all favorites option in the bottom of the navbar favorites dropdown button
 
 +3 Implement a search bar with autocomplete for characters, planets, and vehicles. When the autocomplete is clicked it should take you to the detailed page of the element.
