@@ -48,5 +48,6 @@ Worst case scenario, switch to another topic but try not to.
 - [ ] fix the footer issue: 
           * make the main div relative and the footer fixed with a padding at the bottom of the pages for the footer
 - [ ] delete all favorites option in the bottom of the navbar favorites dropdown button
+- [ ] clean up code: delete unncessary extra lines/logic, etc.
 
 +3 Implement a search bar with autocomplete for characters, planets, and vehicles. When the autocomplete is clicked it should take you to the detailed page of the element.
