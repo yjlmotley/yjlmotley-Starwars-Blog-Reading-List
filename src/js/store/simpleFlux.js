@@ -1,5 +1,6 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	let apiUrl = "https://swapi.dev/api/";
+	let backupApiUrl = "https://swapi.py4e.com/api/";
 
 	return {
 		store: {
