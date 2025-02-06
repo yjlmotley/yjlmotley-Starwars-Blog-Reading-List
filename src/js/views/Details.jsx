@@ -10,6 +10,14 @@ import bespinImg from "../../img/bespin.jpg";
 import "../../styles/details.css";
 
 
+const DetailRow = ({ label, value }) => (
+    <div className="d-flex flex-row mb-2 details-font" style={{ fontSize: '1rem'}}>
+        <u className="w-50 text-end pe-2">{label}</u>
+        <p className="w-50 ps-2 mb-0">{value}</p>
+    </div>
+);
+
+
 export const Details = ({ category }) => {
     const { store } = useContext(Context);
     const [imgErr, setImgErr] = useState(false);
@@ -41,6 +49,36 @@ export const Details = ({ category }) => {
         setImgErr(true);
     };
 
+    const getDetailContent = () => {
+        const contents = {
+            characters: [
+                { label: "Birth Year:", value: character.birth_year },
+                { label: "Gender:", value: character.gender },
+                { label: "Height:", value: character.height },
+                { label: "Mass:", value: character.mass },
+                { label: "Skin Color:", value: character.skin_color },
+                { label: "Eye Color:", value: character.eye_color }
+            ],
+            planets: [
+                { label: "Terrain:", value: planet.terrain },
+                { label: "Climate:", value: planet.climate },
+                { label: "Gravity:", value: planet.gravity },
+                { label: "Diameter:", value: planet.diameter },
+                { label: "Surface Water:", value: planet.surface_water },
+                { label: "Population:", value: planet.population }
+            ],
+            starships: [
+                { label: "Manufacturer:", value: starship.manufacturer },
+                { label: "Starship:", value: starship.starship_class },
+                { label: "Max Atmosphering Speed:", value: starship.max_atmosphering_speed },
+                { label: "Crew:", value: starship.crew },
+                { label: "Passengers:", value: starship.passengers },
+                { label: "Consumables:", value: starship.consumables }
+            ]
+        };
+        return contents[category];
+    };
+    
 
     return (
         <div className="d-flex justify-content-center details-container">
@@ -57,7 +95,7 @@ export const Details = ({ category }) => {
                     </div>
                     <div className="col-md-7">
                         <div className="card-body">
-                            <h2 className="card-title text-center mb-5 datails-title">
+                            <h2 className="card-title text-center mb-5" style={{ fontSize: '3rem' }}>
                                 <u>
                                     {
                                         category == "characters" ? character.name :
@@ -66,102 +104,9 @@ export const Details = ({ category }) => {
                                     }
                                 </u>
                             </h2>
-                            <div className="d-flex flex-row mb-2 details-font">
-                                <u className="w-50 text-end pe-2">
-                                    {
-                                        category == "characters" ? "Birth Year:" :
-                                            category == "planets" ? "Terrain:" :
-                                                "Manufacturer:"
-                                    }
-                                </u>
-                                <p className="w-50 ps-2 mb-0">
-                                    {
-                                        category == "characters" ? character.birth_year :
-                                            category == "planets" ? planet.terrain :
-                                                starship.manufacturer
-                                    }
-                                </p>
-                            </div>
-                            <div className="d-flex flex-row mb-2 details-font">
-                                <u className="w-50 text-end pe-2">
-                                    {
-                                        category == "characters" ? "Gender:" :
-                                            category == "planets" ? "Climate:" :
-                                                "Starship:"
-                                    }
-                                </u>
-                                <p className="w-50 ps-2 mb-0">
-                                    {
-                                        category == "characters" ? character.gender :
-                                            category == "planets" ? planet.climate :
-                                                starship.starship_class
-                                    }
-                                </p>
-                            </div>
-                            <div className="d-flex flex-row mb-2 details-font">
-                                <u className="w-50 text-end pe-2">
-                                    {
-                                        category == "characters" ? "Height:" :
-                                            category == "planets" ? "Gravity:" :
-                                                "Max Atmosphering Speed:"
-                                    }
-                                </u>
-                                <p className="w-50 ps-2 mb-0">
-                                    {
-                                        category == "characters" ? character.height :
-                                            category == "planets" ? planet.gravity :
-                                                starship.max_atmosphering_speed
-                                    }
-                                </p>
-                            </div>
-                            <div className="d-flex flex-row mb-2 details-font">
-                                <u className="w-50 text-end pe-2">
-                                    {
-                                        category == "characters" ? "Mass:" :
-                                            category == "planets" ? "Diameter:" :
-                                                "Crew:"
-                                    }
-                                </u>
-                                <p className="w-50 ps-2 mb-0">
-                                    {
-                                        category == "characters" ? character.mass :
-                                            category == "planets" ? planet.diameter :
-                                                starship.crew
-                                    }
-                                </p>
-                            </div>
-                            <div className="d-flex flex-row mb-2 details-font">
-                                <u className="w-50 text-end pe-2">
-                                    {
-                                        category == "characters" ? "Skin Color:" :
-                                            category == "planets" ? "Surface Water:" :
-                                                "Passengers:"
-                                    }
-                                </u>
-                                <p className="w-50 ps-2 mb-0">
-                                    {
-                                        category == "characters" ? character.skin_color :
-                                            category == "planets" ? planet.surface_water :
-                                                starship.passengers
-                                    }
-                                </p>
-                            </div>
-                            <div className="d-flex flex-row mb-2 details-font">
-                                <u className="w-50 text-end pe-2">
-                                    {
-                                        category == "characters" ? "Eye Color:" :
-                                            category == "planets" ? "Population:" :
-                                                "Consumables:"
-                                    }
-                                </u>
-                                <p className="w-50 ps-2 mb-0">
-                                    {
-                                        category == "characters" ? character.eye_color :
-                                            category == "planets" ? planet.population :
-                                                starship.consumables
-                                    }
-                                </p>
-                            </div>
+                            {getDetailContent().map((detail, index) => (
+                                <DetailRow key={index} label={detail.label} value={detail.value} />
+                            ))}
                         </div>
                     </div>
                 </div>
