@@ -1,5 +1,31 @@
 #layoutDiv {
-    background-color: black;
+    /* background-color: black; */
+    background: url(https://images.alphacoders.com/193/193.jpg
+    );
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    position: relative;
+}
+
+#homePage, .details-container {
+    padding-bottom: 3rem;
+}
+
+
+footer {
+    /* position: fixed;
+    bottom: 0;
+    left: 50%; */
+    position: absolute;
+    bottom: 0;
+    color: #495057;
+    height: 2.5rem;
+    width: 100%;
+}
+
+footer a {
+    color: #868E96;
 }
 
 .navbar {

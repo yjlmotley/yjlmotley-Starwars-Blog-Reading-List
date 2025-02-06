@@ -7,6 +7,8 @@ import emptyPicImg from "../../img/star-wars-empty.jpg";
 import tatooineImg from "../../img/tatooine.jpg";
 import bespinImg from "../../img/bespin.jpg";
 
+import "../../styles/details.css";
+
 
 export const Details = ({ category }) => {
     const { store } = useContext(Context);
@@ -41,7 +43,7 @@ export const Details = ({ category }) => {
 
 
     return (
-        <div className="d-flex justify-content-center">
+        <div className="d-flex justify-content-center details-container">
             <div className="card bg-dark text-light mb-5 p-4"
                 style={{ marginTop: '100px', minWidth: '66%', maxWidth: '66%', boxShadow: '0 8px 12px rgba(255, 255, 255, 0.2)' }}>
                 <div className="row g-0">
@@ -55,7 +57,7 @@ export const Details = ({ category }) => {
                     </div>
                     <div className="col-md-7">
                         <div className="card-body">
-                            <h2 className="card-title text-center mb-5" style={{ fontSize: '3rem' }}>
+                            <h2 className="card-title text-center mb-5 datails-title">
                                 <u>
                                     {
                                         category == "characters" ? character.name :
@@ -64,7 +66,7 @@ export const Details = ({ category }) => {
                                     }
                                 </u>
                             </h2>
-                            <div className="d-flex flex-row mb-2" style={{ fontSize: '1rem' }}>
+                            <div className="d-flex flex-row mb-2 details-font">
                                 <u className="w-50 text-end pe-2">
                                     {
                                         category == "characters" ? "Birth Year:" :
@@ -80,7 +82,7 @@ export const Details = ({ category }) => {
                                     }
                                 </p>
                             </div>
-                            <div className="d-flex flex-row mb-2" style={{ fontSize: '1rem' }}>
+                            <div className="d-flex flex-row mb-2 details-font">
                                 <u className="w-50 text-end pe-2">
                                     {
                                         category == "characters" ? "Gender:" :
@@ -96,7 +98,7 @@ export const Details = ({ category }) => {
                                     }
                                 </p>
                             </div>
-                            <div className="d-flex flex-row mb-2" style={{ fontSize: '1rem' }}>
+                            <div className="d-flex flex-row mb-2 details-font">
                                 <u className="w-50 text-end pe-2">
                                     {
                                         category == "characters" ? "Height:" :
@@ -112,7 +114,7 @@ export const Details = ({ category }) => {
                                     }
                                 </p>
                             </div>
-                            <div className="d-flex flex-row mb-2" style={{ fontSize: '1rem' }}>
+                            <div className="d-flex flex-row mb-2 details-font">
                                 <u className="w-50 text-end pe-2">
                                     {
                                         category == "characters" ? "Mass:" :
@@ -128,7 +130,7 @@ export const Details = ({ category }) => {
                                     }
                                 </p>
                             </div>
-                            <div className="d-flex flex-row mb-2" style={{ fontSize: '1rem' }}>
+                            <div className="d-flex flex-row mb-2 details-font">
                                 <u className="w-50 text-end pe-2">
                                     {
                                         category == "characters" ? "Skin Color:" :
@@ -144,7 +146,7 @@ export const Details = ({ category }) => {
                                     }
                                 </p>
                             </div>
-                            <div className="d-flex flex-row mb-2" style={{ fontSize: '1rem' }}>
+                            <div className="d-flex flex-row mb-2 details-font">
                                 <u className="w-50 text-end pe-2">
                                     {
                                         category == "characters" ? "Eye Color:" :

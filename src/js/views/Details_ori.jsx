@@ -3,9 +3,9 @@ import { Context } from "../store/appContext";
 import { useLocation, useParams } from "react-router-dom";
 import PropTypes from "prop-types";
 
-import "../../styles/details.css";
 import emptyPicImg from "../../img/star-wars-empty.jpg";
 import tatooineImg from "../../img/tatooine.jpg"
+import "../../styles/details.css";
 
 
 export const Details = ({ category }) => {

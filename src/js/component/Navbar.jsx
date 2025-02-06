@@ -9,11 +9,11 @@ export const Navbar = () => {
 	const { store, actions } = useContext(Context);
 
 	const handleDeleteFavorite = (index) => {
-        actions.deleteFavorites(index);
+		actions.deleteFavorites(index);
 	};
 
 	return (
-		<nav className="navbar mb-4" style={{}}>
+		<nav className="navbar mb-4" style={{ background: 'transparent' }}>
 			<div className="dropdown">
 				<button id="favBtn" type="button" className="btn btn-outline-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
 					<i className="fa-regular fa-heart"></i><b> Favorites [{store.favorites.length}]</b>
@@ -28,7 +28,7 @@ export const Navbar = () => {
 								</Link>
 								<span onClick={() => handleDeleteFavorite(index)}>
 									<i className="fa-regular fa-trash-can"></i>
-								</span>	
+								</span>
 							</li>
 						))
 					) : (
@@ -40,7 +40,7 @@ export const Navbar = () => {
 				<Link to="/">
 					<img id="swLogo" src={starWarsLogo} alt="Logo Design by FlamingText.com" title="Logo Design by FlamingText.com" />
 				</Link>
-			</div>	
+			</div>
 		</nav>
 	);
 };
